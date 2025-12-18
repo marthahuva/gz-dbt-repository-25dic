@@ -1,0 +1,15 @@
+# schema.yml
+version: 2
+
+sources:
+  - name: raw
+    database: my-project-202511-478923        # your GCP project ID
+    schema: gz_raw_data    # "{{ target.schema }}_raw"             # or use {{ target.schema }} for environment-safe naming
+    loader: bigquery                 # identifies how data is loaded (fivetran, airbyte, etc.)
+    tables:
+      - name: sales
+        identifier: raw_gz_sales
+      - name: product
+        identifier: raw_gz_product
+      - name: ship
+        identifier: raw_gz_ship
